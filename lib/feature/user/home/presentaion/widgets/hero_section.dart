@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:innovative_agro_aid/feature/user/widgets/animated_wave_container.dart';
-import '../../../../core/const/network_img.dart';
-import '../../../../core/utils/error_image.dart';
+import '../../../../../core/const/network_img.dart';
+import '../../../../../core/utils/error_image.dart';
 
 class HeroSection extends StatelessWidget {
   const HeroSection({super.key});
@@ -68,7 +68,7 @@ class HeroSection extends StatelessWidget {
                 SizedBox(
                   height: 250,
                   child: Image.network(
-                    NetworkImg.logo,
+                    "NetworkImg.logo",
                     fit: BoxFit.contain,
                     errorBuilder: (context, error, stackTrace) {
                       return ErrorImage(error: error);

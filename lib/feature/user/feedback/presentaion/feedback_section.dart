@@ -359,7 +359,7 @@ class _FeedbackSectionState extends State<FeedbackSection> {
                       onPressed: _isSending ? null : _submitFeedback,
                       style: ElevatedButton.styleFrom(
                         padding: const EdgeInsets.symmetric(vertical: 18),
-                        backgroundColor: _challengeSolved ? Colors.black87 : Colors.grey,
+                        backgroundColor: _challengeSolved ? Colors.green : Colors.grey,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8),
                         ),

@@ -27,7 +27,7 @@ class WebAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isSmallScreen = MediaQuery.of(context).size.width < 650;
+    final isSmallScreen = MediaQuery.of(context).size.width < 680;
 
     return AppBar(
       backgroundColor: Colors.white,

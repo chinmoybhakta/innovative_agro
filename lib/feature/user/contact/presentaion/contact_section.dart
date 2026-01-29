@@ -462,7 +462,7 @@ class _ContactSectionState extends State<ContactSection> {
                       onPressed: _isSending ? null : _sendEmail,
                       style: ElevatedButton.styleFrom(
                         padding: const EdgeInsets.symmetric(vertical: 16),
-                        backgroundColor: _challengeSolved ? Colors.black87 : Colors.grey,
+                        backgroundColor: _challengeSolved ? Colors.green : Colors.grey,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8),
                         ),

@@ -88,7 +88,7 @@ class DashboardScreen extends StatelessWidget {
               ),
             ),
             InkWell(child: Text("Edit Contacts Details"), onTap: ()=>Navigator.push(context, MaterialPageRoute(builder: (_)=>const EditContactDetails())),),
-            Text("All Rights Reserved @CHINMOYBHAKTA")
+            Text("© 2026 Innovative Agro Aid")
           ],
         ),
     );

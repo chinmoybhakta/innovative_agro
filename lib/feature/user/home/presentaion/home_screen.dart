@@ -4,8 +4,8 @@ import '../../about/presentaion/about_section.dart';
 import '../../contact/presentaion/contact_section.dart';
 import '../../feedback/presentaion/feedback_section.dart';
 import '../../products/presentaion/products_section.dart';
-import 'footer.dart';
-import 'hero_section.dart';
+import 'widgets/footer.dart';
+import 'widgets/hero_section.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -269,7 +269,7 @@ class _HomeScreenState extends State<HomeScreen> {
   String _getSectionDescription(String title) {
     switch (title) {
       case 'Products':
-        return 'Discover our agricultural products and solutions';
+        return 'Discover our products and solutions';
       case 'About':
         return 'Learn about our mission, vision, and values';
       case 'Feedback':

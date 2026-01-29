@@ -9,7 +9,7 @@ class ErrorImage extends StatelessWidget {
     super.key,
     this.error,
     this.loadingProgress,
-    this.isLoading = false,
+    this.isLoading = false
   });
 
   @override
@@ -73,21 +73,7 @@ class ErrorImage extends StatelessWidget {
               color: Colors.grey,
               fontSize: 12,
             ),
-          ),
-          if (error != null)
-            Padding(
-              padding: const EdgeInsets.only(top: 4),
-              child: Text(
-                error.toString(),
-                style: const TextStyle(
-                  color: Colors.red,
-                  fontSize: 10,
-                ),
-                textAlign: TextAlign.center,
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
-              ),
-            ),
+          )
         ],
       ),
     );

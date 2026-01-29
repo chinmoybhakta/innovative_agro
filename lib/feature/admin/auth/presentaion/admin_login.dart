@@ -1,5 +1,4 @@
 import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -39,7 +38,6 @@ class _AdminLoginState extends State<AdminLogin> {
       );
 
     } on FirebaseAuthException catch (e) {
-      // Handle Firebase-specific errors
       log('Firebase Auth Error Code: ${e.code}');
       log('Firebase Auth Error Message: ${e.message}');
       Fluttertoast.showToast(msg: e.toString());

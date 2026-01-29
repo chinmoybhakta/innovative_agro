@@ -68,7 +68,7 @@ class HeroSection extends StatelessWidget {
                 SizedBox(
                   height: 250,
                   child: Image.network(
-                    "NetworkImg.logo",
+                    NetworkImg.logo,
                     fit: BoxFit.contain,
                     errorBuilder: (context, error, stackTrace) {
                       return ErrorImage(error: error);

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:innovative_agro_aid/core/const/network_svg.dart';
 
 class WebAppBar extends StatelessWidget implements PreferredSizeWidget {
   final GlobalKey<ScaffoldState>? scaffoldKey;
@@ -40,7 +42,12 @@ class WebAppBar extends StatelessWidget implements PreferredSizeWidget {
           },
           child: Row(
             children: [
-              Icon(Icons.agriculture, color: Colors.green, size: 28),
+              SvgPicture.network(
+                NetworkSvg.logoSvg,
+                width: 40,
+                height: 40,
+                colorFilter: ColorFilter.mode(Colors.green, BlendMode.srcIn),
+              ),
               const SizedBox(width: 8),
               const Text(
                 'Innovative Agro Aid',

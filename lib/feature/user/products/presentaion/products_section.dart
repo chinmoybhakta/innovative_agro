@@ -10,36 +10,43 @@ class ProductsSection extends StatelessWidget {
   Widget build(BuildContext context) {
     final service = FirestoreService();
 
-    return Padding(
-      padding: const EdgeInsets.all(40),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const SectionTitle(title: 'Our Products'),
-          const SizedBox(height: 20),
-          StreamBuilder(
-            stream: service.getItems(),
-            builder: (context, snapshot) {
-              if (!snapshot.hasData) {
-                return const CircularProgressIndicator();
-              }
-
-              final items = snapshot.data!;
-              return GridView.builder(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 4,
-                  childAspectRatio: 0.75,
-                  crossAxisSpacing: 20,
-                  mainAxisSpacing: 20,
-                ),
-                itemCount: items.length,
-                itemBuilder: (_, i) => ProductCard(item: items[i]),
-              );
-            },
-          ),
-        ],
+    return SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.all(40),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const SectionTitle(title: 'Our Products'),
+            const SizedBox(height: 20),
+            StreamBuilder(
+              stream: service.getItems(),
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return const Center(child: CircularProgressIndicator());
+                }
+      
+                if (snapshot.hasError) {
+                  return Center(
+                    child: Text('Error: ${snapshot.error}'),
+                  );
+                }
+      
+                if (!snapshot.hasData || snapshot.data!.isEmpty) {
+                  return const Center(
+                    child: Text('No products available'),
+                  );
+                }
+      
+                final items = snapshot.data!;
+      
+                return Column(
+                  children: List.generate(items.length, (index)=> ProductCard(item: items[index],)),
+                );
+              },
+            ),
+          ],
+        ),
       ),
     );
   }

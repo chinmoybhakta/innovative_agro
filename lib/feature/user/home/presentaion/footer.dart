@@ -7,11 +7,9 @@ class Footer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(20),
-      color: Colors.green,
       child: const Center(
         child: Text(
-          '© 2026 Innovative Agro Aid',
-          style: TextStyle(color: Colors.white),
+          '© 2026 Innovative Agro Aid'
         ),
       ),
     );

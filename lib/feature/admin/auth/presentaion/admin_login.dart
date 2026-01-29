@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import '../../../../core/const/network_img.dart';
+import '../../../../core/utils/error_image.dart';
 import '../../dashboard/presentaion/dashboard_screen.dart';
 
 
@@ -35,7 +36,9 @@ class _AdminLoginState extends State<AdminLogin> {
         child: SizedBox(
           width: 350,
           child: Column(mainAxisSize: MainAxisSize.min, children: [
-            Image.network(NetworkImg.logo),
+            Image.network(NetworkImg.logo, errorBuilder: (context, error, stackTrace){
+              return ErrorImage(error: error);
+            }),
             TextField(controller: email, decoration: const InputDecoration(labelText: 'Email')),
             TextField(controller: password, decoration: const InputDecoration(labelText: 'Password'), obscureText: true),
             const SizedBox(height: 20),

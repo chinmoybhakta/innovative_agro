@@ -1,10 +1,11 @@
+import 'dart:developer';
+import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:innovative_agro_aid/core/theme/app_theme.dart';
-import 'package:innovative_agro_aid/feature/admin/auth/presentaion/auth_gate.dart';
 import 'package:innovative_agro_aid/feature/user/home/presentaion/home_screen.dart';
 import 'firebase_options.dart';
 
@@ -14,6 +15,19 @@ void main() async {
   FirebaseFirestore.instance.settings = const Settings(
     persistenceEnabled: true,
   );
+
+  FlutterError.onError = (FlutterErrorDetails details) {
+    FlutterError.dumpErrorToConsole(details);
+    if (kReleaseMode) {
+      // In production, log to crash reporting
+      exit(1);
+    }
+  };
+
+  PlatformDispatcher.instance.onError = (error, stack) {
+    log('Platform error: $error\n$stack');
+    return true;
+  };
   if (kIsWeb) {
     await FirebaseAuth.instance.setPersistence(Persistence.LOCAL);
   }
@@ -29,7 +43,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Innovative Agro Aid',
       theme: AppTheme.appTheme,
-      home: const HomeScreen(),
+      home: HomeScreen(),
     );
   }
 }
